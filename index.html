@@ -1,0 +1,27 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#2196F3">
+  <link rel='manifest' href='manifest.json'>
+</head>
+<script>
+  // Quickly understand how service worker works here : https://developers.google.com/web/fundamentals/getting-started/primers/service-workers
+  // For more patterns, check https://jakearchibald.com/2014/offline-cookbook/
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('./sw.js').then(registration => {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }).catch(err => {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+</script>
+
+<div id="content">
+  <p> Add your content here ! </p>
+</div>
+
+</html>
